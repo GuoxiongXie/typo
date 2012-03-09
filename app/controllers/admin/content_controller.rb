@@ -36,7 +36,12 @@ class Admin::ContentController < Admin::BaseController
     end
     new_or_edit
   end
-
+  
+  #---------------I added this function!!!------------------------------------------------------------------------
+  def merge_articles
+    
+  end
+  #----------------------------end of the part I added---------------------------------------------
   def destroy
     @record = Article.find(params[:id])
 
