@@ -72,6 +72,29 @@ class Article < Content
       self.settings = {}
     end
   end
+  
+  #----------------------------- I added this one!! ------------------------
+  def merge_with(artID)
+    #self is the current article object
+    otherArt = Article.find(artID)
+    #merge comments first, if art deleted, then comments are gone!
+    commentList = otherArt.comments #all comments for otherArt
+    commentList.each do |acom|
+      acom.article_id = self.id
+      acom.save!
+    end
+
+    #otherArt.save!
+    #self.save!
+    otherArt = Article.find(artID)
+        
+    #merge body 
+    self.body = self.body + otherArt.body
+    
+    otherArt.destroy
+    self.save!    
+  end
+  #--------------------------- end of the one I added---------------------
 
   def has_child?
     Article.exists?({:parent_id => self.id})
@@ -455,6 +478,8 @@ class Article < Content
     users << self.user if (self.user.notify_watch_my_articles? rescue false)
     self.notify_users = users.uniq
   end
+  
+
 
   def self.time_delta(year = nil, month = nil, day = nil)
     return nil if year.nil? && month.nil? && day.nil?

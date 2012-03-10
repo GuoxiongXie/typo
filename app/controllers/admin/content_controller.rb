@@ -39,6 +39,24 @@ class Admin::ContentController < Admin::BaseController
   
   #---------------I added this function!!!------------------------------------------------------------------------
   def merge_articles
+    if current_user.admin?
+      tarArt = Article.find_by_id(params[:id])
+      if request.post?
+        artID = params[:artID]
+        if Article.find_by_id(artID) == nil #sad path
+          redirect_to :action => 'index'
+          flash[:error] = _("Error, the article you are trying to merge does not exist!")
+          
+        else  #happy path
+          tarArt.merge_with(artID) #merge_with is an Article model method. DEBUG: can use @article directly??
+          redirect_to :action => 'index' #after merge, redirect to index
+          #return
+        end      
+      end
+    else #not admin but trying to do merge
+      redirect_to :action => 'index'
+      flash[:error] = _("Error, only admin can do the merging!")  
+    end  
     
   end
   #----------------------------end of the part I added---------------------------------------------

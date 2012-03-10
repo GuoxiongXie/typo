@@ -17,9 +17,10 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="84" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="com.aptana.editor.erb.html" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.aptana.editor.haml" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.aptana.editor.erb.html" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="com.aptana.editor.text" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="com.aptana.editor.ruby" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.aptana.editor.ruby" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -28,10 +29,31 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
 </folder>
 </info>
 </editorArea>
+<editor id="com.aptana.editor.ruby" name="content_controller.rb" partName="content_controller.rb" title="content_controller.rb" tooltip="/home/saasbook/typo/app/controllers/admin/content_controller.rb" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/saasbook/typo/app/controllers/admin/content_controller.rb"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1248" selectionTopPixel="527"/>
+</editor>
+<editor id="com.aptana.editor.ruby" name="article.rb" partName="article.rb" title="article.rb" tooltip="/home/saasbook/typo/app/models/article.rb" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/saasbook/typo/app/models/article.rb"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2932" selectionTopPixel="1156"/>
+</editor>
+<editor activePart="true" focus="true" id="com.aptana.editor.erb.html" name="_edit.html.erb" partName="_edit.html.erb" title="_edit.html.erb" tooltip="/home/saasbook/typo/app/views/admin/shared/_edit.html.erb" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/saasbook/typo/app/views/admin/shared/_edit.html.erb"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="501" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.erb.html" name="new.html.erb" partName="new.html.erb" title="new.html.erb" tooltip="/home/saasbook/typo/app/views/admin/content/new.html.erb" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/saasbook/typo/app/views/admin/content/new.html.erb"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
@@ -47,7 +69,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="com.aptana.ui.WebPerspective">
+<perspectives activePart="com.aptana.editor.erb.html" activePerspective="com.aptana.ui.WebPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.aptana.ui.internal.WebPerspectiveFactory" id="com.aptana.ui.WebPerspective" label="Web"/>
 <alwaysOnActionSet id="com.aptana.browser.actionSet"/>
@@ -141,7 +163,166 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" uri="file:/home/saasbook/typo/app/controllers/admin/content_controller.rb"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" uri="file:/home/saasbook/typo/app/models/article.rb"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" uri="file:/home/saasbook/typo/app/views/admin/content/_form.html.erb"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" uri="file:/home/saasbook/typo/app/views/admin/shared/_edit.html.erb"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" uri="file:/home/saasbook/typo/db/schema.rb"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" uri="file:/home/saasbook/typo/app/views/admin/content/new.html.erb"/>
+</editors>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="461" y="0"/>
+</item>
+<item historyLabel="schema.rb" index="4">
+<position info="not_deleted" x="1637" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="461" y="0"/>
+</item>
+<item historyLabel="article.rb" index="1">
+<position info="not_deleted" x="2932" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1274" y="0"/>
+</item>
+<item historyLabel="_form.html.erb" index="2">
+<position info="not_deleted" x="3917" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1274" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="506" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1274" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="255" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1589" y="0"/>
+</item>
+<item historyLabel="article.rb" index="1">
+<position info="not_deleted" x="2932" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1589" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1217" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1215" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1215" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1274" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1274" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1248" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="579" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1248" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="579" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1248" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1254" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="579" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1248" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="373" y="0"/>
+</item>
+<item historyLabel="new.html.erb" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1274" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="506" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1265" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="515" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1265" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1248" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="article.rb" index="1">
+<position info="not_deleted" x="2932" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1248" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="506" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1248" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1248" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="582" y="0"/>
+</item>
+<item historyLabel="content_controller.rb" index="0">
+<position info="not_deleted" x="1248" y="0"/>
+</item>
+<item historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="570" y="0"/>
+</item>
+<item active="true" historyLabel="_edit.html.erb" index="3">
+<position info="not_deleted" x="298" y="0"/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -159,50 +340,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" name="index.html.erb" tooltip="/home/saasbook/typo/app/views/admin/profiles/index.html.erb">
-<persistable uri="file:/home/saasbook/typo/app/views/admin/profiles/index.html.erb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" name="new.html.erb" tooltip="/home/saasbook/typo/app/views/admin/content/new.html.erb">
+<persistable uri="file:/home/saasbook/typo/app/views/admin/content/new.html.erb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="user.rb" tooltip="/home/saasbook/typo/app/models/user.rb">
-<persistable uri="file:/home/saasbook/typo/app/models/user.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" name="_edit_cal_form.html.erb" tooltip="/home/saasbook/sp12/hw3/bearPlanner/app/views/bear_planner/_edit_cal_form.html.erb">
+<persistable uri="file:/home/saasbook/sp12/hw3/bearPlanner/app/views/bear_planner/_edit_cal_form.html.erb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="categories_controller.rb" tooltip="/home/saasbook/typo/app/controllers/admin/categories_controller.rb">
-<persistable uri="file:/home/saasbook/typo/app/controllers/admin/categories_controller.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.haml" name="edit.html.haml" tooltip="/home/saasbook/hw4_rottenpotatoes/app/views/movies/edit.html.haml">
+<persistable uri="file:/home/saasbook/hw4_rottenpotatoes/app/views/movies/edit.html.haml"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="cache_controller.rb" tooltip="/home/saasbook/typo/app/controllers/admin/cache_controller.rb">
-<persistable uri="file:/home/saasbook/typo/app/controllers/admin/cache_controller.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" name="_edit.html.erb" tooltip="/home/saasbook/typo/app/views/admin/shared/_edit.html.erb">
+<persistable uri="file:/home/saasbook/typo/app/views/admin/shared/_edit.html.erb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="base_controller.rb" tooltip="/home/saasbook/typo/app/controllers/admin/base_controller.rb">
-<persistable uri="file:/home/saasbook/typo/app/controllers/admin/base_controller.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" name="index.html.erb" tooltip="/home/saasbook/typo/app/views/admin/content/index.html.erb">
+<persistable uri="file:/home/saasbook/typo/app/views/admin/content/index.html.erb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="profiles_controller.rb" tooltip="/home/saasbook/typo/app/controllers/admin/profiles_controller.rb">
-<persistable uri="file:/home/saasbook/typo/app/controllers/admin/profiles_controller.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" name="edit_calendar.html.erb" tooltip="/home/saasbook/sp12/hw3/bearPlanner/app/views/bear_planner/edit_calendar.html.erb">
+<persistable uri="file:/home/saasbook/sp12/hw3/bearPlanner/app/views/bear_planner/edit_calendar.html.erb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="064_add_users_profile.rb" tooltip="/home/saasbook/typo/db/migrate/064_add_users_profile.rb">
-<persistable uri="file:/home/saasbook/typo/db/migrate/064_add_users_profile.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="bear_planner_controller.rb" tooltip="/home/saasbook/sp12/hw3/bearPlanner/app/controllers/bear_planner_controller.rb">
+<persistable uri="file:/home/saasbook/sp12/hw3/bearPlanner/app/controllers/bear_planner_controller.rb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="profile.rb" tooltip="/home/saasbook/typo/app/models/profile.rb">
-<persistable uri="file:/home/saasbook/typo/app/models/profile.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="comment.rb" tooltip="/home/saasbook/typo/app/models/comment.rb">
+<persistable uri="file:/home/saasbook/typo/app/models/comment.rb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="users_controller.rb" tooltip="/home/saasbook/typo/app/controllers/admin/users_controller.rb">
-<persistable uri="file:/home/saasbook/typo/app/controllers/admin/users_controller.rb"/>
-</file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="082_add_users_options.rb" tooltip="/home/saasbook/typo/db/migrate/082_add_users_options.rb">
-<persistable uri="file:/home/saasbook/typo/db/migrate/082_add_users_options.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="content.rb" tooltip="/home/saasbook/typo/app/models/content.rb">
+<persistable uri="file:/home/saasbook/typo/app/models/content.rb"/>
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="schema.rb" tooltip="/home/saasbook/typo/db/schema.rb">
 <persistable uri="file:/home/saasbook/typo/db/schema.rb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="003_add_article_user_id.rb" tooltip="/home/saasbook/typo/db/migrate/003_add_article_user_id.rb">
-<persistable uri="file:/home/saasbook/typo/db/migrate/003_add_article_user_id.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="movie.rb" tooltip="/home/saasbook/hw4_rottenpotatoes/app/models/movie.rb">
+<persistable uri="file:/home/saasbook/hw4_rottenpotatoes/app/models/movie.rb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="065_add_users_rights.rb" tooltip="/home/saasbook/typo/db/migrate/065_add_users_rights.rb">
-<persistable uri="file:/home/saasbook/typo/db/migrate/065_add_users_rights.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="article.rb" tooltip="/home/saasbook/typo/app/models/article.rb">
+<persistable uri="file:/home/saasbook/typo/app/models/article.rb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="001_initial_schema.rb" tooltip="/home/saasbook/typo/db/migrate/001_initial_schema.rb">
-<persistable uri="file:/home/saasbook/typo/db/migrate/001_initial_schema.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="content_controller.rb" tooltip="/home/saasbook/typo/app/controllers/admin/content_controller.rb">
+<persistable uri="file:/home/saasbook/typo/app/controllers/admin/content_controller.rb"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="accounts_controller.rb" tooltip="/home/saasbook/typo/app/controllers/accounts_controller.rb">
-<persistable uri="file:/home/saasbook/typo/app/controllers/accounts_controller.rb"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.ruby" name="content_controller.rb" tooltip="/home/saasbook/typo/app/controllers/content_controller.rb">
+<persistable uri="file:/home/saasbook/typo/app/controllers/content_controller.rb"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.erb.html" name="_attachment.html.erb" tooltip="/home/saasbook/typo/app/views/admin/content/_attachment.html.erb">
+<persistable uri="file:/home/saasbook/typo/app/views/admin/content/_attachment.html.erb"/>
 </file>
 </mruList>
 </workbench>
