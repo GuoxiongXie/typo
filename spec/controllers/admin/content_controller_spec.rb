@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Admin::ContentController do
   render_views
 
+
+
   # Like it's a shared, need call everywhere
   shared_examples_for 'index action' do
 
@@ -480,6 +482,88 @@ describe Admin::ContentController do
     it_should_behave_like 'new action'
     it_should_behave_like 'destroy action'
     it_should_behave_like 'autosave action'
+    
+    #-------------------- I added this -------------------------------------
+    describe 'merge_articles action' do
+    
+      before :each do
+        @comment1 = Factory(:comment, :author => "commenter1",:body => 'comment from commenter1')
+        @comment2 = Factory(:comment, :author => "commenter2",:body => 'comment from commenter2')
+        @comment3 = Factory(:comment, :author => "commenter3",:body => 'comment from commenter3')
+        @comment4 = Factory(:comment, :author => "commenter4",:body => 'comment from commenter4')
+        
+        @commentList1 = [@comment1, @comment2]
+        @commentList2 = [@comment3, @comment4]
+        
+        @article1 = Factory(:article, :author => "JK Rollin",:body => 'once uppon an originally time', :comments => @commentList1) #:comment_id or :comment???
+        @article2 = Factory(:article, :author => "Hemingway",:body => 'killing a hummmingbird', :comments => @commentList2)
+      end
+
+      it "A non-admin cannot merge articles" do
+        current_user = Factory(:current_user, :admin? => false)
+        post :merge_articles, {:id => 1, :artID => 2}
+        response.should render_template('index')          
+      end
+      
+      describe 'When pass admin check' do
+
+        it "An admin can merge articles" do
+          current_user = Factory(:current_user, :admin? => true)
+          Article.should_receive(:find_art_by_id).with(1).and_return(@article1)
+          post :merge_articles, {:id => 1, :artID => 2}
+        end
+        
+        describe 'after Article passes back an article object' do
+          before :each do
+            current_user = Factory(:current_user, :admin? => true)
+            request = Factory(:request, :post? => true)
+            Article.stub(:find_art_by_id).and_return(@article1)
+            post :merge_articles, {:id => 1, :artID => 2}
+          end
+          
+          it "should search artID in Article again" do
+            Article.should_receive(:find_art_by_id).with(2).and_return(@article2)
+            #post :merge_articles, {:id => 1, :artID => 2}
+          end
+          
+          it "When the article with artID is not found, should redirect to index" do
+            Article.stub(:find_art_by_id).with(2).and_return(nil)
+            #post :merge_articles, {:id => 1, :artID => 2}
+            response.should render_template('index')
+          end          
+            
+        end
+      end
+      
+      """
+      it 'should restrict only by searchstring' do
+        article = Factory(:article, :body => 'once uppon an originally time')
+        get :index, :search => {:searchstring => 'originally'}
+        assigns(:articles).should == [article]
+        response.should render_template('index')
+        response.should be_success
+      end
+      
+
+      describe 'after valid search' do
+        before :each do
+          Movie.stub(:find_director_in_TMDb).and_return(@fake_results)
+          post :similar, {:id => 1}
+        end
+        it 'should select the Search Results template for rendering' do
+          response.should render_template('similar')
+        end
+        
+        it 'should make the TMDb search results available to that template' do
+          assigns(:movies).should == @fake_results
+        end
+      end
+      """
+  end
+
+#--------------------end of the part I added --------------------------
+
+    
 
     describe 'edit action' do
 

@@ -5,7 +5,7 @@
   
 <% end %>
 
-<% if @article.id and current_user.admin? %>
+<% if @article and @article.id and current_user.admin? %>
 <%= form_tag :action => "merge_articles", :method => :merge_articles, :id => @article.id do %>
   <div class ="field">
   	<h2><%= _("Merge Articles") %></h2>
