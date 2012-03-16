@@ -75,9 +75,8 @@ class Article < Content
   
   #----------------------------- I added this one!! ------------------------
   def self.find_art_by_id(id) #need self or not??
-    return Article.find(id)
+   return Article.find(id)
   end
-  
   
   def merge_with(artID)
     #self is the current article object

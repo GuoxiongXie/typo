@@ -485,66 +485,53 @@ describe Admin::ContentController do
     
     #-------------------- I added this -------------------------------------
     describe 'merge_articles action' do
-    
       before :each do
         @comment1 = Factory(:comment, :author => "commenter1",:body => 'comment from commenter1')
         @comment2 = Factory(:comment, :author => "commenter2",:body => 'comment from commenter2')
         @comment3 = Factory(:comment, :author => "commenter3",:body => 'comment from commenter3')
-        @comment4 = Factory(:comment, :author => "commenter4",:body => 'comment from commenter4')
-        
+        @comment4 = Factory(:comment, :author => "commenter4",:body => 'comment from commenter4')    
         @commentList1 = [@comment1, @comment2]
         @commentList2 = [@comment3, @comment4]
-        
-        @article1 = Factory(:article, :author => "JK Rollin",:body => 'once uppon an originally time', :comments => @commentList1) #:comment_id or :comment???
         @article2 = Factory(:article, :author => "Hemingway",:body => 'killing a hummmingbird', :comments => @commentList2)
       end
-
-      it "A non-admin cannot merge articles" do
-        current_user = Factory(:current_user, :admin? => false)
-        post :merge_articles, {:id => 1, :artID => 2}
-        response.should render_template('index')          
-      end
-      
-      describe 'When pass admin check' do
-
-        it "An admin can merge articles" do
-          current_user = Factory(:current_user, :admin? => true)
-          Article.should_receive(:find_art_by_id).with(1).and_return(@article1)
-          post :merge_articles, {:id => 1, :artID => 2}
-        end
-        
+      it "A admin can merge articles" do
+        #Article.should_receive(:find).with(2).and_return(@article2)
+        @user.admin?.should == true
+        post :merge_articles, {:id => @article.id, :artID => @article2.id}     
+        response.should redirect_to :action => 'index'         
+      end  
         describe 'after Article passes back an article object' do
           before :each do
-            current_user = Factory(:current_user, :admin? => true)
-            request = Factory(:request, :post? => true)
-            Article.stub(:find_art_by_id).and_return(@article1)
+            #request = Factory(:request, :post? => true)
+            Article.stub(:find_art_by_id).and_return(@article2)
             post :merge_articles, {:id => 1, :artID => 2}
           end
           
-          it "should search artID in Article again" do
-            Article.should_receive(:find_art_by_id).with(2).and_return(@article2)
-            #post :merge_articles, {:id => 1, :artID => 2}
+          
+          it 'if article exist, should call merge_with to merge the article (happy path)' do
+            Article.should_receive(:find_art_by_id).with(@article2.id).and_return(@article2)
+            #post :merge_with, {:id => 2}
+            @article2.should_receive(:merge_with).with(@article.id)
+            post :merge_articles, {:id => @article2.id, :artID => @article.id}     
+            response.should redirect_to :action => 'index'    
           end
           
-          it "When the article with artID is not found, should redirect to index" do
-            Article.stub(:find_art_by_id).with(2).and_return(nil)
-            #post :merge_articles, {:id => 1, :artID => 2}
-            response.should render_template('index')
-          end          
-            
+          
+          it 'should raise an error when article_s ID is not found (sad path)' do
+            Article.should_receive(:find).with(5).and_return(nil)
+            post :merge_articles, {:id => 1, :artID => 5}
+            response.should redirect_to :action => 'index'
+            flash[:error].should == "Error, the article you are trying to merge does not exist!"
+          end      
+                       
         end
-      end
-      
-      """
       it 'should restrict only by searchstring' do
-        article = Factory(:article, :body => 'once uppon an originally time')
-        get :index, :search => {:searchstring => 'originally'}
-        assigns(:articles).should == [article]
+        get :index, :search => {:searchstring => 'killing'}
+        assigns(:articles).should == [@article2]
         response.should render_template('index')
         response.should be_success
       end
-      
-
+      """
       describe 'after valid search' do
         before :each do
           Movie.stub(:find_director_in_TMDb).and_return(@fake_results)
@@ -705,7 +692,16 @@ describe Admin::ContentController do
     it_should_behave_like 'index action'
     it_should_behave_like 'new action'
     it_should_behave_like 'destroy action'
-
+    
+    #------------------------- I added this ---------------------
+    it "A non-admin cannot merge articles should be redirected to index" do
+      post :merge_articles, :id => @user.id
+      #post :merge_articles, {:id => 1, :artID => 2}
+      response.should redirect_to(:action => 'index')
+      flash[:error].should == "Error, only admin can do the merging!"       
+    end
+      
+      #--------------end of the one I added-------------------------
     describe 'edit action' do
 
       it "should redirect if edit article doesn't his" do

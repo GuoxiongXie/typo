@@ -40,10 +40,10 @@ class Admin::ContentController < Admin::BaseController
   #---------------I added this function!!!------------------------------------------------------------------------
   def merge_articles
     if current_user.admin?
-      tarArt = Article.find_art_by_id(params[:id])
+      tarArt = Article.find(params[:id])
       if request.post?
         artID = params[:artID]
-        if Article.find_art_by_id(artID) == nil #sad path
+        if Article.find(artID) == nil #sad path
           redirect_to :action => 'index'
           flash[:error] = _("Error, the article you are trying to merge does not exist!")
           
