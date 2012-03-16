@@ -40,7 +40,7 @@ describe Article do
     # NOTE: URLs must not have any multibyte characters in them. The
     # browser may display them differently, though.
     describe "with a multibyte permalink" do
-      subject { Article.new(:permalink => '銉儞銉?, :published_at => Time.new(2004, 6, 1)) }
+      subject { Article.new(:permalink => 'ルビー', :published_at => Time.new(2004, 6, 1)) }
       it "escapes the multibyte characters" do
         subject.permalink_url(anchor=nil, only_path=true).should == '/2004/06/01/%E3%83%AB%E3%83%93%E3%83%BC'
       end
@@ -128,8 +128,8 @@ describe Article do
     end
 
     it "does not escape multibyte characters" do
-      a = Article.new(:title => "銉儞銉?)
-      a.stripped_title.should == "銉儞銉?
+      a = Article.new(:title => "ルビー")
+      a.stripped_title.should == "ルビー"
     end
 
     it "is called upon saving the article" do
@@ -611,16 +611,12 @@ describe Article do
      @article1 = Factory(:article, :body => "acv", :published_feedback => [@comment1])
      @comment = Factory(:comment)
      @originArticle = Factory(:article, :title => "title1", :body => "dwdn qwuid", :published_feedback => [@comment])     
-     #@article = mock(Article, :id => 5, :title => "title2", :body => 'some content')
      @body = @article1.body + @originArticle.body
      @article1.merge_with(@originArticle.id)
    end
    it 'should merge content' do
      @article1.body.should be == @body
      @comment.article_id == @article1.id
-     #Article.should_receive(:find).with(@article1.id).and_return(@article1)
-     #@article.merge_articles(@merge_article.id)
-     #@article.body.should be == 'content' + @originArticle.body
    end
  end
 end

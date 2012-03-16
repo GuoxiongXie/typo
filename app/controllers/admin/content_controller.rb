@@ -40,7 +40,7 @@ class Admin::ContentController < Admin::BaseController
   #---------------I added this function!!!------------------------------------------------------------------------
   def merge_articles
     if current_user.admin?
-      tarArt = Article.find(params[:id])
+      tarArt = Article.find_art_by_id(params[:id])
       if request.post?
         artID = params[:artID]
         if Article.find(artID) == nil #sad path
